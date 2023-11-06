@@ -9,7 +9,7 @@ class UsersController < ApplicationController
             user.save!
             render json: { message: 'success' }
         else
-            render json: { message: 'Email empty or already in use' }
+            render json: { message: 'failed', errors: user.errors }
         end
     end
 
