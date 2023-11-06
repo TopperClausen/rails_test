@@ -7,7 +7,7 @@ class UsersController < ApplicationController
         user = User.new(user_params)
         if user.valid?
             user.save!
-            render json: { message: 'success' }
+            render json: { message: 'success', jwt: user.jwt }
         else
             render json: { message: 'failed', errors: user.errors }
         end

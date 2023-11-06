@@ -309,3 +309,185 @@ Processing by UsersController#create as */*
 Completed 200 OK in 181ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 1338)
 
 
+Started POST "/postman" for ::1 at 2023-11-06 16:22:07 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/postman"):
+  
+Started POST "/sessions" for ::1 at 2023-11-06 16:22:13 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@admin.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@admin.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7abd9b0340>, params: {"email"=>"admin@admin.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@admin.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 404 Not Found in 8ms (ActiveRecord: 2.1ms | Allocations: 2290)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'={:email=>"admin@admin.dk"}):
+  
+app/controllers/sessions_controller.rb:3:in `create'
+Started POST "/sessions" for ::1 at 2023-11-06 16:22:40 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@admin.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@admin.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8f9bda28>, params: {"email"=>"admin@admin.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@admin.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? /* loading for inspect */ LIMIT ?[0m  [["email", "admin@admin.dk"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.5ms | Allocations: 2744)
+
+
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? /* loading for inspect */ LIMIT ?[0m  [["email", "admin@admin.dk"], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `password' for #<ActiveRecord::Relation []>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? /* loading for inspect */ LIMIT ?[0m  [["email", "admin@admin.dk"], ["LIMIT", 11]]
+Started POST "/sessions" for ::1 at 2023-11-06 16:22:51 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8fa61880>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? /* loading for inspect */ LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3636)
+
+
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? /* loading for inspect */ LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `password' for #<ActiveRecord::Relation [#<User id: 1, full_name: "Super Admin", email: "admin@test.dk", password_digest: [FILTERED], created_at: "2023-11-06 13:01:09.824212000 +0000", updated_at: "2023-11-06 13:01:09.824212000 +0000">]>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? /* loading for inspect */ LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 11]]
+Started POST "/sessions" for ::1 at 2023-11-06 16:23:27 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8f99d3e0>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8f99d3e0>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+Completed 204 No Content in 6ms (ActiveRecord: 1.2ms | Allocations: 4959)
+
+
+Started POST "/sessions" for ::1 at 2023-11-06 16:23:47 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8fa42a98>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8fa42a98>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 4925)
+
+
+Started POST "/sessions" for ::1 at 2023-11-06 16:24:14 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8fa70830>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8fa70830>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 678)
+
+
+Started POST "/sessions" for ::1 at 2023-11-06 16:24:20 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7abe45b2e0>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? /* loading for inspect */ LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.0ms | Allocations: 5260)
+
+
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? /* loading for inspect */ LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `password' for #<ActiveRecord::Relation [#<User id: 1, full_name: "Super Admin", email: "admin@test.dk", password_digest: [FILTERED], created_at: "2023-11-06 13:01:09.824212000 +0000", updated_at: "2023-11-06 13:01:09.824212000 +0000">]>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? /* loading for inspect */ LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 11]]
+Started POST "/sessions" for ::1 at 2023-11-06 16:24:36 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8f839080>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.4ms | Allocations: 4851)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<SessionsController:0x000000000216d8>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+Started POST "/sessions" for ::1 at 2023-11-06 16:24:39 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8f999920>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 568)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<SessionsController:0x00000000021750>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+Started POST "/sessions" for ::1 at 2023-11-06 16:25:19 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8fa81d60>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 568)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<SessionsController:0x000000000217c8>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+Started POST "/sessions" for ::1 at 2023-11-06 16:25:20 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8fa974f8>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 568)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<SessionsController:0x00000000021868>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+Started POST "/sessions" for ::1 at 2023-11-06 16:25:30 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f7a8fa03848>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 569)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<SessionsController:0x000000000218e0>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+Started POST "/sessions" for ::1 at 2023-11-06 16:25:43 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9fca798>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9fca798>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9fca798>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9fca798>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9fca798>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9fca798>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9fca798>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9fca798>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+Completed 401 Unauthorized in 137372ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 91254)
+
+
+Started POST "/sessions" for ::1 at 2023-11-06 16:28:07 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9713e88>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f62f9713e88>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Completed 200 OK in 178ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 6565)
+
+
