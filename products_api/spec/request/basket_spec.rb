@@ -38,7 +38,7 @@ RSpec.describe "Basket", type: :request do
         put "/users/#{@user.id}/baskets", params: { product_id: product.id, amount: amount }, headers: { Authorization: @user.jwt }
         body = JSON.parse(response.body)
         expect(body["basket"].empty?).to be(true)
-        expect(@user.basket.where.not(amount: 0).empty?).to be(true)
+        expect(@user.basket_product.where.not(amount: 0).empty?).to be(true)
     end
 
     it "Attempts to update a basket without being logged in" do
