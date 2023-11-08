@@ -7,9 +7,8 @@ RSpec.describe "Users", type: :request do
     end
 
     it "creates a user with an email in use" do
-        email = 'test@test.dk'
-        User.create(email: email, full_name: 'Test Test', password: 'MagicWord123')
-        post "/users", params: { full_name: 'Jørgen Jørgnsen', email: email, password: "SecretMagicWord123" }
+        user = FactoryGirl.create(:user)
+        post "/users", params: { full_name: 'Jørgen Jørgnsen', email: user.email, password: "SecretMagicWord123" }
         expect(response.body).to include('has already been taken')
     end
 

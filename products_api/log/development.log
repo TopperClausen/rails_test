@@ -491,3 +491,970 @@ DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rail
 Completed 200 OK in 178ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 6565)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20231106215035)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231106215035') RETURNING "version"[0m
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/products" for ::1 at 2023-11-06 22:59:44 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/topper/rails_test/products_api/app/controllers/products_controller.rb:5: syntax error, unexpected local variable or method, expecting '}'
+...: { message: 'success' products: Product.all }
+...                       ^~~~~~~~
+):
+  
+app/controllers/products_controller.rb:5: syntax error, unexpected local variable or method, expecting '}'
+Started GET "/products" for ::1 at 2023-11-06 23:00:54 +0100
+  
+ArgumentError (Unknown key: :presence. Valid keys are: :on, :if, :unless, :prepend. Perhaps you meant to call `validates` instead of `validate`?):
+  
+app/models/product.rb:2:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+Started GET "/products" for ::1 at 2023-11-06 23:01:17 +0100
+Processing by ProductsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "product"=>{}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 4.3ms | Allocations: 249)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...); return".):
+  
+app/controllers/application_controller.rb:6:in `authorize'
+Started GET "/products" for ::1 at 2023-11-06 23:02:29 +0100
+Processing by ProductsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "product"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 1.3ms | Allocations: 214)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...); return".):
+  
+app/controllers/application_controller.rb:6:in `authorize'
+Started GET "/products" for ::1 at 2023-11-06 23:03:29 +0100
+Processing by ProductsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "product"=>{}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18:in `from_jwt'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18:in `from_jwt'
+Completed 500 Internal Server Error in 52173ms (ActiveRecord: 4.6ms | Allocations: 10310)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...); return".):
+  
+app/controllers/application_controller.rb:7:in `authorize'
+Started GET "/products" for ::1 at 2023-11-06 23:04:37 +0100
+Processing by ProductsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "product"=>{}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18:in `from_jwt'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 1.8ms | ActiveRecord: 1.8ms | Allocations: 5044)
+
+
+Started GET "/products" for ::1 at 2023-11-06 23:04:41 +0100
+Processing by ProductsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "product"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...); return".):
+  
+app/controllers/application_controller.rb:6:in `authorize'
+Started GET "/products" for ::1 at 2023-11-06 23:05:10 +0100
+Processing by ProductsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "product"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 3.3ms | Allocations: 211)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...); return".):
+  
+app/controllers/application_controller.rb:6:in `authorize'
+Started GET "/products" for ::1 at 2023-11-06 23:05:29 +0100
+Processing by ProductsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "product"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 1.0ms | Allocations: 211)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...); return".):
+  
+app/controllers/application_controller.rb:6:in `authorize'
+Started GET "/products" for ::1 at 2023-11-06 23:05:54 +0100
+Processing by ProductsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "product"=>{}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 179)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/products" for ::1 at 2023-11-06 23:10:30 +0100
+Processing by ProductsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "product"=>{}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18:in `from_jwt'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 2.1ms | Allocations: 5005)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBasket (20231107115131)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "baskets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107115131') RETURNING "version"[0m
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:02:33 +0100
+  
+SyntaxError (/home/topper/rails_test/products_api/config/routes.rb:3: syntax error, unexpected [, expecting `do' or '{' or '('
+    resources :baskets, only [:index]
+                             ^
+):
+  
+config/routes.rb:3: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:02:47 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{}}
+Completed 200 OK in 99064ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 62027)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:04:28 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+Completed 200 OK in 84496ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 26933)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:05:56 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+Completed 200 OK in 37205ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 63430)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:06:37 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{}}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 3018)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:06:39 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasket Load (0.1ms)[0m  [1m[34mSELECT "baskets".* FROM "baskets" WHERE "baskets"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/baskets_controller.rb:4:in `index'
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBasket (20231107115131)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "baskets"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20231107115131'[0m
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBasket (20231107115131)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107115131') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Completed 200 OK in 325593ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 18387)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:12:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+Completed 200 OK in 90821ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 71634)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:13:46 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+Completed 200 OK in 27619ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 11673)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:14:15 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/baskets_controller.rb:4:in `index'
+Completed 200 OK in 117210ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 15234)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:16:15 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/baskets_controller.rb:4:in `index'
+Completed 200 OK in 20776ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 17128)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:17:14 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+Completed 200 OK in 169095ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 4887)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:20:31 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 5644)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:20:39 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 524)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:20:40 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 521)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:20:49 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 34452ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 11034)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:21:50 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `index'
+Completed 200 OK in 16ms (Views: 2.5ms | ActiveRecord: 1.5ms | Allocations: 10040)
+
+
+Started POST "/sessions" for ::1 at 2023-11-07 13:22:08 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007fd58cd0a480>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007fd58cd0a480>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+Completed 200 OK in 169ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1230)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:22:25 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1331)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 13:24:58 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 1332)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 23:40:36 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/topper/rails_test/products_api/app/controllers/baskets_controller.rb:6: syntax error, unexpected `end', expecting '}'
+    end
+    ^~~
+):
+  
+app/controllers/baskets_controller.rb:6: syntax error, unexpected `end', expecting '}'
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 23:41:02 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `map'
+Completed 200 OK in 78ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 25624)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "basket_products"[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231107115131)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231106215035),
+(20231106120630);[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:45:50.304766', '2023-11-07 22:45:50.304771') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '297de8a87614bb2f3fc342f8f679a7ec958ff91d', '2023-11-07 22:45:50.307954', '2023-11-07 22:45:50.307957') RETURNING "key"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "basket_products"[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231107115131)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231106215035),
+(20231106120630);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:45:50.334444', '2023-11-07 22:45:50.334446') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (0.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2023-11-07 22:45:50.335433' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '297de8a87614bb2f3fc342f8f679a7ec958ff91d', '2023-11-07 22:45:50.336359', '2023-11-07 22:45:50.336360') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Super Admin"], ["email", "admin@test.dk"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 22:45:50.547658"], ["updated_at", "2023-11-07 22:45:50.547658"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-07 22:45:50.569759"], ["updated_at", "2023-11-07 22:45:50.569759"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-07 22:45:50.575907"], ["updated_at", "2023-11-07 22:45:50.575907"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-07 22:45:50.602776"], ["updated_at", "2023-11-07 22:45:50.602776"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-07 22:45:50.606215"], ["updated_at", "2023-11-07 22:45:50.606215"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "admin@test.dk"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-07 22:45:53.966095"], ["updated_at", "2023-11-07 22:45:53.966095"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-07 22:45:53.969333"], ["updated_at", "2023-11-07 22:45:53.969333"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-07 22:46:17.087244"], ["updated_at", "2023-11-07 22:46:17.087244"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-07 22:46:17.089983"], ["updated_at", "2023-11-07 22:46:17.089983"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "basket_products"[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231107115131)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231106215035),
+(20231106120630);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:46:26.995911', '2023-11-07 22:46:26.995914') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '297de8a87614bb2f3fc342f8f679a7ec958ff91d', '2023-11-07 22:46:26.998421', '2023-11-07 22:46:26.998423') RETURNING "key"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "basket_products"[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231107115131)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231106215035),
+(20231106120630);[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:46:27.039941', '2023-11-07 22:46:27.039945') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (0.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2023-11-07 22:46:27.042220' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '297de8a87614bb2f3fc342f8f679a7ec958ff91d', '2023-11-07 22:46:27.044453', '2023-11-07 22:46:27.044456') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (4.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Super Admin"], ["email", "admin@test.dk"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 22:46:27.270230"], ["updated_at", "2023-11-07 22:46:27.270230"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-07 22:46:27.293637"], ["updated_at", "2023-11-07 22:46:27.293637"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-07 22:46:27.295985"], ["updated_at", "2023-11-07 22:46:27.295985"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-07 22:46:27.321461"], ["updated_at", "2023-11-07 22:46:27.321461"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-07 22:46:27.324901"], ["updated_at", "2023-11-07 22:46:27.324901"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "admin@test.dk"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-07 22:46:31.054397"], ["updated_at", "2023-11-07 22:46:31.054397"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-07 22:46:31.057391"], ["updated_at", "2023-11-07 22:46:31.057391"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:47:19.848845', '2023-11-07 22:47:19.848847') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsersTable (20231106120630)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231106120630') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProducts (20231106215035)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231106215035') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBasket (20231107115131)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107115131') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Super Admin"], ["email", "admin@test.dk"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 22:47:22.270424"], ["updated_at", "2023-11-07 22:47:22.270424"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (1.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-07 22:47:22.286789"], ["updated_at", "2023-11-07 22:47:22.286789"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-07 22:47:22.289652"], ["updated_at", "2023-11-07 22:47:22.289652"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-07 22:47:22.314275"], ["updated_at", "2023-11-07 22:47:22.314275"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-07 22:47:22.317821"], ["updated_at", "2023-11-07 22:47:22.317821"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "admin@test.dk"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/sessions" for ::1 at 2023-11-07 23:47:37 +0100
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f2114fa6680>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[31mUnpermitted parameters: :full_name, :session. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007f2114fa6680>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "controller"=>"sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}} }[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Completed 200 OK in 174ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 5818)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 23:47:57 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `block in index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `block in index'
+Completed 200 OK in 33ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 16094)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "basket_products"[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231107115131)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231106215035),
+(20231106120630);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:50:50.950955', '2023-11-07 22:50:50.950957') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '297de8a87614bb2f3fc342f8f679a7ec958ff91d', '2023-11-07 22:50:50.953680', '2023-11-07 22:50:50.953682') RETURNING "key"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "basket_products"[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231107115131)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231106215035),
+(20231106120630);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:50:51.028184', '2023-11-07 22:50:51.028186') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (0.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2023-11-07 22:50:51.029497' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '297de8a87614bb2f3fc342f8f679a7ec958ff91d', '2023-11-07 22:50:51.030718', '2023-11-07 22:50:51.030720') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Super Admin"], ["email", "admin@test.dk"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 22:50:51.246695"], ["updated_at", "2023-11-07 22:50:51.246695"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-07 22:50:51.269753"], ["updated_at", "2023-11-07 22:50:51.269753"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-07 22:50:51.271929"], ["updated_at", "2023-11-07 22:50:51.271929"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-07 22:50:51.293579"], ["updated_at", "2023-11-07 22:50:51.293579"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "basket_products"[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231107115131)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231106215035),
+(20231106120630);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:51:14.471431', '2023-11-07 22:51:14.471434') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '297de8a87614bb2f3fc342f8f679a7ec958ff91d', '2023-11-07 22:51:14.475414', '2023-11-07 22:51:14.475416') RETURNING "key"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "basket_products"[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231107115131)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231106215035),
+(20231106120630);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:51:14.501564', '2023-11-07 22:51:14.501566') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (0.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2023-11-07 22:51:14.502650' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '297de8a87614bb2f3fc342f8f679a7ec958ff91d', '2023-11-07 22:51:14.503618', '2023-11-07 22:51:14.503619') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (5.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Super Admin"], ["email", "admin@test.dk"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 22:51:14.732428"], ["updated_at", "2023-11-07 22:51:14.732428"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-07 22:51:14.754986"], ["updated_at", "2023-11-07 22:51:14.754986"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-07 22:51:14.757126"], ["updated_at", "2023-11-07 22:51:14.757126"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-07 22:51:14.781463"], ["updated_at", "2023-11-07 22:51:14.781463"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 22:52:02.907388', '2023-11-07 22:52:02.907391') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsersTable (20231106120630)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231106120630') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProducts (20231106215035)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231106215035') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBasket (20231107115131)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107115131') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Super Admin"], ["email", "admin@test.dk"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 22:52:04.998337"], ["updated_at", "2023-11-07 22:52:04.998337"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-07 22:52:05.013321"], ["updated_at", "2023-11-07 22:52:05.013321"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-07 22:52:05.015822"], ["updated_at", "2023-11-07 22:52:05.015822"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-07 22:52:05.039418"], ["updated_at", "2023-11-07 22:52:05.039418"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."product_id" = ? LIMIT ?[0m  [["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBasketProduct Update (0.6ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 2], ["updated_at", "2023-11-07 22:52:05.041749"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-07 22:52:05.045444"], ["updated_at", "2023-11-07 22:52:05.045444"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."product_id" = ? LIMIT ?[0m  [["product_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBasketProduct Update (0.6ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 0], ["updated_at", "2023-11-07 22:52:05.047191"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "admin@test.dk"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 23:52:10 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `block in index'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:5:in `block in index'
+Completed 200 OK in 23ms (Views: 0.5ms | ActiveRecord: 1.9ms | Allocations: 15532)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 23:53:37 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.2ms | Allocations: 7547)
+
+
+  
+TypeError (wrong argument type Symbol (expected Module)):
+  
+app/controllers/baskets_controller.rb:5:in `index'
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 23:53:48 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:6:in `block in index'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 15052)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 23:53:56 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 17928)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-07 23:54:25 +0100
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 15020)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-08 12:33:29 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BasketsController#index as */*
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin", "user_id"=>"1", "basket"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]", "full_name"=>"Super Admin"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+Completed 200 OK in 118ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 39377)
+
+
+Started PATCH "/users/1/baskets" for ::1 at 2023-11-08 12:34:03 +0100
+  
+ActionController::RoutingError (No route matches [PATCH] "/users/1/baskets"):
+  
+Started PUT "/users/1/baskets" for ::1 at 2023-11-08 12:34:08 +0100
+  
+ActionController::RoutingError (No route matches [PUT] "/users/1/baskets"):
+  
+Started PUT "/users/1/baskets" for ::1 at 2023-11-08 12:35:08 +0100
+Processing by BasketsController#update as */*
+  Parameters: {"product_id"=>2, "amount"=>1, "user_id"=>"1", "basket"=>{"product_id"=>2, "amount"=>1}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? AND "products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:10:in `update'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.8ms | Allocations: 10708)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: products.product_id):
+  
+Started PUT "/users/1/baskets" for ::1 at 2023-11-08 12:36:34 +0100
+Processing by BasketsController#update as */*
+  Parameters: {"product_id"=>2, "amount"=>1, "user_id"=>"1", "basket"=>{"product_id"=>2, "amount"=>1}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:10:in `update'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.6ms | Allocations: 10193)
+
+
+  
+NameError (undefined local variable or method `existing_product' for #<BasketsController:0x0000000000fe10>):
+  
+app/controllers/baskets_controller.rb:14:in `update'
+Started PUT "/users/1/baskets" for ::1 at 2023-11-08 12:36:44 +0100
+Processing by BasketsController#update as */*
+  Parameters: {"product_id"=>2, "amount"=>1, "user_id"=>"1", "basket"=>{"product_id"=>2, "amount"=>1}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:10:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/baskets_controller.rb:15:in `update'
+  [1m[36mBasketProduct Update (0.6ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-08 11:36:44.750759"], ["id", 2]]
+  ↳ app/controllers/baskets_controller.rb:15:in `update'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/baskets_controller.rb:15:in `update'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:18:in `update'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/baskets_controller.rb:19:in `update'
+Completed 200 OK in 28ms (Views: 3.9ms | ActiveRecord: 7.2ms | Allocations: 18389)
+
+
+Started PUT "/users/1/baskets" for ::1 at 2023-11-08 12:37:21 +0100
+Processing by BasketsController#update as */*
+  Parameters: {"product_id"=>2, "amount"=>2, "user_id"=>"1", "basket"=>{"product_id"=>2, "amount"=>2}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:10:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/baskets_controller.rb:15:in `update'
+  [1m[36mBasketProduct Update (0.5ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 2], ["updated_at", "2023-11-08 11:37:21.196903"], ["id", 2]]
+  ↳ app/controllers/baskets_controller.rb:15:in `update'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/baskets_controller.rb:15:in `update'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:18:in `update'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:20:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/baskets_controller.rb:20:in `map'
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 7.2ms | Allocations: 18013)
+
+
+Started PUT "/users/1/baskets" for ::1 at 2023-11-08 12:37:32 +0100
+Processing by BasketsController#update as */*
+  Parameters: {"product_id"=>1, "amount"=>3, "user_id"=>"1", "basket"=>{"product_id"=>1, "amount"=>3}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:10:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/baskets_controller.rb:15:in `update'
+  [1m[36mBasketProduct Update (0.5ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 3], ["updated_at", "2023-11-08 11:37:32.185162"], ["id", 1]]
+  ↳ app/controllers/baskets_controller.rb:15:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/baskets_controller.rb:15:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/baskets_controller.rb:18:in `update'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:20:in `map'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/baskets_controller.rb:20:in `map'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 4591)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-08 12:37:40 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/baskets"):
+  
+Started GET "/users/1/baskets" for ::1 at 2023-11-08 12:38:09 +0100
+Processing by BasketsController#show as */*
+  Parameters: {"product_id"=>1, "amount"=>3, "user_id"=>"1", "basket"=>{"product_id"=>1, "amount"=>3}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 15107)
+
+
