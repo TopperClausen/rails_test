@@ -1458,3 +1458,858 @@ DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rail
 Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 15107)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20231110093551)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "orders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ordered_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "order_id" integer, "product_id" integer, "baught_price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231110093551') RETURNING "version"[0m
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20231110093551)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "ordered_products"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "orders"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20231110093551'[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20231110093551)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "orders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ordered_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "order_id" integer, "product_id" integer, "baught_price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231110093551') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:47:35 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as */*
+  Parameters: {"product_id"=>1, "amount"=>3, "user_id"=>"1", "order"=>{}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `success_response'
+Completed 200 OK in 48ms (Views: 2.4ms | ActiveRecord: 0.7ms | Allocations: 18700)
+
+
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:47:43 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"product_id"=>1, "amount"=>3, "user_id"=>"1", "order"=>{}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 113)
+
+
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:47:46 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"product_id"=>1, "amount"=>3, "user_id"=>"1", "order"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `success_response'
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 1149)
+
+
+Started POST "/users/1/orders" for ::1 at 2023-11-10 10:47:59 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms | Allocations: 3104)
+
+
+  
+NoMethodError (undefined method `create' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:9:in `create'
+Started POST "/users/1/orders" for ::1 at 2023-11-10 10:48:08 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.6ms | Allocations: 21261)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (OrderedProduct(#26820) expected, got #<Product id: 1, name: "Shoe", description: "A very nice shoe in hight quality", price: 60, created_at: "2023-11-07 22:52:05.013321000 +0000", updated_at: "2023-11-07 22:52:05.013321000 +0000"> which is an instance of Product(#26800)):
+  
+app/controllers/orders_controller.rb:9:in `create'
+Started POST "/users/1/orders" for ::1 at 2023-11-10 10:51:21 +0100
+  
+SyntaxError (/home/topper/rails_test/products_api/app/controllers/orders_controller.rb:9: syntax error, unexpected '}', expecting ')'
+...rder.create(user_id: @user.id })
+...                              ^
+/home/topper/rails_test/products_api/app/controllers/orders_controller.rb:10: syntax error, unexpected '}', expecting '}'
+...d_product(order_id: order_id) }
+...                              ^
+):
+  
+app/controllers/orders_controller.rb:9: syntax error, unexpected '}', expecting ')'
+app/controllers/orders_controller.rb:10: syntax error, unexpected '}', expecting '}'
+Started POST "/users/1/orders" for ::1 at 2023-11-10 10:52:01 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 09:52:01.075677"], ["updated_at", "2023-11-10 09:52:01.075677"]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 7.5ms | Allocations: 19198)
+
+
+  
+NameError (undefined local variable or method `order_id' for #<OrdersController:0x00000000014870>):
+  
+app/controllers/orders_controller.rb:10:in `block in create'
+app/controllers/orders_controller.rb:10:in `create'
+Started POST "/users/1/orders" for ::1 at 2023-11-10 10:52:32 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 09:52:32.427655"], ["updated_at", "2023-11-10 09:52:32.427655"]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 2], ["product_id", 1], ["baught_price", 60], ["created_at", "2023-11-10 09:52:32.460162"], ["updated_at", "2023-11-10 09:52:32.460162"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 2], ["product_id", 2], ["baught_price", 120], ["created_at", "2023-11-10 09:52:32.463685"], ["updated_at", "2023-11-10 09:52:32.463685"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 8.7ms | Allocations: 31727)
+
+
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:52:37 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `success_response'
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 1473)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-10 10:53:01 +0100
+Processing by BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+Completed 200 OK in 32ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 17504)
+
+
+Started POST "/users/1/orders" for ::1 at 2023-11-10 10:53:07 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mOrder Create (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 09:53:07.791307"], ["updated_at", "2023-11-10 09:53:07.791307"]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 3], ["product_id", 1], ["baught_price", 60], ["created_at", "2023-11-10 09:53:07.807487"], ["updated_at", "2023-11-10 09:53:07.807487"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 3], ["product_id", 2], ["baught_price", 120], ["created_at", "2023-11-10 09:53:07.810809"], ["updated_at", "2023-11-10 09:53:07.810809"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:11:in `create'
+  [1m[36mBasketProduct Load (0.5ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" IN (?, ?)[0m  [["user_id", 1], ["product_id", 1], ["product_id", 2]]
+  ↳ app/controllers/orders_controller.rb:11:in `create'
+  [1m[36mBasketProduct Destroy (0.0ms)[0m  [1m[31mDELETE FROM "basket_products" WHERE "basket_products"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `create'
+  [1m[36mBasketProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "basket_products" WHERE "basket_products"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/orders_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:11:in `create'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 8.2ms | Allocations: 21252)
+
+
+Started GET "/users/1/baskets" for ::1 at 2023-11-10 10:53:12 +0100
+Processing by BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1118)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-10 09:55:56.544711', '2023-11-10 09:55:56.544714') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsersTable (20231106120630)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231106120630') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProducts (20231106215035)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231106215035') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBasket (20231107115131)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "basket_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "amount" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107115131') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOrders (20231110093551)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "orders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ordered_products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "order_id" integer, "product_id" integer, "baught_price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231110093551') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Super Admin"], ["email", "admin@test.dk"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-10 09:55:58.722774"], ["updated_at", "2023-11-10 09:55:58.722774"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (2.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Shoe"], ["description", "A very nice shoe in hight quality"], ["price", 60], ["created_at", "2023-11-10 09:55:58.773227"], ["updated_at", "2023-11-10 09:55:58.773227"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Jacket"], ["description", "A very nice jacket in hight quality"], ["price", 120], ["created_at", "2023-11-10 09:55:58.778139"], ["updated_at", "2023-11-10 09:55:58.778139"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-10 09:55:58.801209"], ["updated_at", "2023-11-10 09:55:58.801209"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."product_id" = ? LIMIT ?[0m  [["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBasketProduct Update (0.7ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 2], ["updated_at", "2023-11-10 09:55:58.803651"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-10 09:55:58.807662"], ["updated_at", "2023-11-10 09:55:58.807662"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."product_id" = ? LIMIT ?[0m  [["product_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBasketProduct Update (0.8ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 0], ["updated_at", "2023-11-10 09:55:58.809754"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "admin@test.dk"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Ordered product"], ["description", "A product the user has ordered"], ["price", 69], ["created_at", "2023-11-10 09:55:58.813972"], ["updated_at", "2023-11-10 09:55:58.813972"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 09:55:58.821525"], ["updated_at", "2023-11-10 09:55:58.821525"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 3], ["baught_price", 69], ["created_at", "2023-11-10 09:55:58.835356"], ["updated_at", "2023-11-10 09:55:58.835356"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product'
+Started GET "/users/1/baskets" for ::1 at 2023-11-10 10:56:04 +0100
+Processing by BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/baskets_controller.rb:6:in `map'
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 15365)
+
+
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:56:09 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `success_response'
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 4705)
+
+
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:56:52 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.2ms | Allocations: 7684)
+
+
+  
+TypeError (wrong argument type Symbol (expected Module)):
+  
+app/controllers/orders_controller.rb:5:in `index'
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:56:57 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `success_response'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `success_response'
+Completed 200 OK in 19ms (Views: 7.8ms | ActiveRecord: 1.4ms | Allocations: 14963)
+
+
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:59:20 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 14758)
+
+
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:59:33 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.7ms | Allocations: 14674)
+
+
+  
+NoMethodError (undefined method `products' for #<Order id: 1, user_id: 1, created_at: "2023-11-10 09:55:58.821525000 +0000", updated_at: "2023-11-10 09:55:58.821525000 +0000">):
+  
+app/controllers/orders_controller.rb:5:in `index'
+Started GET "/users/1/orders" for ::1 at 2023-11-10 10:59:38 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 14825)
+
+
+Started GET "/users/1/orders/1" for ::1 at 2023-11-10 11:02:44 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."order_id" = ?[0m  [["user_id", 1], ["order_id", "1"]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.5ms | Allocations: 8157)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: orders.order_id):
+  
+Started GET "/users/1/orders/1" for ::1 at 2023-11-10 11:03:05 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ?[0m  [["user_id", 1], ["id", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 14804)
+
+
+Started GET "/users/1/orders/1" for ::1 at 2023-11-10 11:03:16 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 2.1ms | Allocations: 9996)
+
+
+  
+NoMethodError (undefined method `includes' for #<Order id: 1, user_id: 1, created_at: "2023-11-10 09:55:58.821525000 +0000", updated_at: "2023-11-10 09:55:58.821525000 +0000">):
+  
+app/controllers/orders_controller.rb:9:in `show'
+Started GET "/users/1/orders/1" for ::1 at 2023-11-10 11:03:40 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND (1) ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 15112)
+
+
+Started GET "/users/1/orders/1" for ::1 at 2023-11-10 11:03:51 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 15008)
+
+
+Started GET "/users/1/orders/2" for ::1 at 2023-11-10 11:03:56 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1193)
+
+
+Started GET "/users/1/orders/2" for ::1 at 2023-11-10 11:05:31 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 8400)
+
+
+Started GET "/users/1/orders/2" for ::1 at 2023-11-10 11:05:46 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:13:in `show'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 8356)
+
+
+Started GET "/users/1/orders/2" for ::1 at 2023-11-10 11:05:54 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 11]]
+  ↳ app/controllers/orders_controller.rb:11:in `show'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:14:in `show'
+Completed 200 OK in 23682ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 61320)
+
+
+Started GET "/users/1/orders/2" for ::1 at 2023-11-10 11:06:27 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:13:in `show'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 9951)
+
+
+Started GET "/users/1/orders/2" for ::1 at 2023-11-10 11:06:28 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ? ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1580)
+
+
+Started GET "/users/1/orders/2" for ::1 at 2023-11-10 11:06:34 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ?[0m  [["user_id", 1], ["id", 2]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 8165)
+
+
+Started GET "/users/1/orders/2" for ::1 at 2023-11-10 11:06:38 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ?[0m  [["user_id", 1], ["id", 2]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 404 Not Found in 14ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 8197)
+
+
+Started POST "/users/1/orders/2" for ::1 at 2023-11-10 11:09:32 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/users/1/orders/2"):
+  
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:09:43 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+Completed 500 Internal Server Error in 9ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 5958)
+
+
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:09:56 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.1ms | Allocations: 5965)
+
+
+  
+NameError (undefined local variable or method `e' for #<OrdersController:0x00000000065360>):
+  
+app/controllers/orders_controller.rb:23:in `rescue in create'
+app/controllers/orders_controller.rb:17:in `create'
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:11:57 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+Completed 500 Internal Server Error in 11ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 6061)
+
+
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:14:46 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mProduct Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:14:46.672684"], ["updated_at", "2023-11-10 10:14:46.672684"]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 2], ["product_id", 1], ["baught_price", 60], ["created_at", "2023-11-10 10:14:46.691955"], ["updated_at", "2023-11-10 10:14:46.691955"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 2], ["product_id", 2], ["baught_price", 120], ["created_at", "2023-11-10 10:14:46.695238"], ["updated_at", "2023-11-10 10:14:46.695238"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+Completed 500 Internal Server Error in 49ms (Views: 0.1ms | ActiveRecord: 9.8ms | Allocations: 30478)
+
+
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:15:11 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mProduct Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:15:11.794371"], ["updated_at", "2023-11-10 10:15:11.794371"]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 3], ["product_id", 1], ["baught_price", 60], ["created_at", "2023-11-10 10:15:11.813332"], ["updated_at", "2023-11-10 10:15:11.813332"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 3], ["product_id", 2], ["baught_price", 120], ["created_at", "2023-11-10 10:15:11.817108"], ["updated_at", "2023-11-10 10:15:11.817108"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/orders_controller.rb:27:in `to_str'
+Completed 500 Internal Server Error in 54ms (Views: 0.1ms | ActiveRecord: 10.2ms | Allocations: 30294)
+
+
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:15:22 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mProduct Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:15:22.098323"], ["updated_at", "2023-11-10 10:15:22.098323"]]
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:22:in `create'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 4], ["product_id", 1], ["baught_price", 60], ["created_at", "2023-11-10 10:15:22.122350"], ["updated_at", "2023-11-10 10:15:22.122350"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 4], ["product_id", 2], ["baught_price", 120], ["created_at", "2023-11-10 10:15:22.126575"], ["updated_at", "2023-11-10 10:15:22.126575"]]
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/product.rb:9:in `to_ordered_product!'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" IN (?, ?)[0m  [["user_id", 1], ["product_id", 1], ["product_id", 2]]
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mBasketProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "basket_products" WHERE "basket_products"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mBasketProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "basket_products" WHERE "basket_products"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:24:in `create'
+Completed 200 OK in 61ms (Views: 0.2ms | ActiveRecord: 11.1ms | Allocations: 35029)
+
+
+Started GET "/users/1/orders/4" for ::1 at 2023-11-10 11:15:31 +0100
+Processing by OrdersController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ?[0m  [["user_id", 1], ["id", 4]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 4]]
+  ↳ app/controllers/orders_controller.rb:10:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2511)
+
+
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:15:39 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mProduct Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `create'
+Completed 400 Bad Request in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1203)
+
+
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:16:11 +0100
+  
+SyntaxError (/home/topper/rails_test/products_api/app/controllers/orders_controller.rb:18: void value expression
+/home/topper/rails_test/products_api/app/controllers/orders_controller.rb:24: syntax error, unexpected `rescue', expecting `end' or dummy end
+    rescue StandardError => e
+    ^~~~~~
+/home/topper/rails_test/products_api/app/controllers/orders_controller.rb:28: syntax error, unexpected end-of-input):
+  
+app/controllers/orders_controller.rb:18: void value expression
+app/controllers/orders_controller.rb:24: syntax error, unexpected `rescue', expecting `end' or dummy end
+app/controllers/orders_controller.rb:28: syntax error, unexpected end-of-input
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:16:12 +0100
+  
+SyntaxError (/home/topper/rails_test/products_api/app/controllers/orders_controller.rb:18: void value expression
+/home/topper/rails_test/products_api/app/controllers/orders_controller.rb:24: syntax error, unexpected `rescue', expecting `end' or dummy end
+    rescue StandardError => e
+    ^~~~~~
+/home/topper/rails_test/products_api/app/controllers/orders_controller.rb:28: syntax error, unexpected end-of-input):
+  
+app/controllers/orders_controller.rb:18: void value expression
+app/controllers/orders_controller.rb:24: syntax error, unexpected `rescue', expecting `end' or dummy end
+app/controllers/orders_controller.rb:28: syntax error, unexpected end-of-input
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:16:18 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mProduct Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `create'
+Completed 400 Bad Request in 17ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 10035)
+
+
+Started POST "/users/1/orders" for ::1 at 2023-11-10 11:16:28 +0100
+Processing by OrdersController#create as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mProduct Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:18:in `create'
+Completed 400 Bad Request in 17ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 9964)
+
+
+Started GET "/users/1/orders" for ::1 at 2023-11-10 11:31:16 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" IN (?, ?, ?, ?)[0m  [["order_id", 1], ["order_id", 2], ["order_id", 3], ["order_id", 4]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 11247)
+
+
+Started GET "/users/1/orders" for ::1 at 2023-11-10 11:33:37 +0100
+Processing by OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" IN (?, ?, ?, ?)[0m  [["order_id", 1], ["order_id", 2], ["order_id", 3], ["order_id", 4]]
+  ↳ app/controllers/orders_controller.rb:5:in `index'
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 15480)
+
+
+Started GET "/V1/users/1/orders" for ::1 at 2023-11-10 11:52:52 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/V1/users/1/orders"):
+  
+Started GET "/v1/users/1/orders" for ::1 at 2023-11-10 11:52:58 +0100
+Processing by V1::OrdersController#index as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/V1/orders_controller.rb:6:in `index'
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" IN (?, ?, ?, ?)[0m  [["order_id", 1], ["order_id", 2], ["order_id", 3], ["order_id", 4]]
+  ↳ app/controllers/V1/orders_controller.rb:6:in `index'
+Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 38038)
+
+

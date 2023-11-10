@@ -5,6 +5,7 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6 }
     validates :full_name, presence: true
 
+    has_many :orders, class_name: :Order, foreign_key: :user_id
     has_many :basket_product, class_name: :BasketProduct, foreign_key: :user_id
     has_many :basket, class_name: :Product, through: :basket_product, source: :product
 

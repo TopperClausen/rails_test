@@ -13,11 +13,25 @@ FactoryGirl.define do
                 relation.save!
             end
         end
+
+        trait :with_order do
+            after(:create) do |user|
+                order = create(:order, user_id: user.id)
+                create(:product).to_ordered_product!(order_id: order.id)
+            end
+        end
     end
 
     factory :product do
         sequence(:name) { |n| "Test product #{n}"}
         description 'A very nice test product'
         price 40
+    end
+
+    factory :order do
+    end
+
+    factory :ordered_product do
+        baught_price 69
     end
 end
