@@ -4,7 +4,8 @@ module V1
 
         def show
             basket_product = @user.basket_product.where.not(amount: 0).includes(:product)
-            render json: { message: 'success', basket: basket_product.map { |scoped_basket_products| { amount: scoped_basket_products.amount, product: scoped_basket_products.product } } }
+            products_with_amount = basket_product.map { |scoped_basket_products| { amount: scoped_basket_products.amount, product: scoped_basket_products.product } }
+            success_response(data: products_with_amount)
         end
 
         def update
@@ -18,12 +19,13 @@ module V1
 
             @user.reload
             basket_product = @user.basket_product.where.not(amount: 0).includes(:product)
-            render json: { message: 'success', basket: basket_product.map { |scoped_basket_products| { amount: scoped_basket_products.amount, product: scoped_basket_products.product } } }
+            products_with_amount = basket_product.map { |scoped_basket_products| { amount: scoped_basket_products.amount, product: scoped_basket_products.product } }
+            success_response(data: products_with_amount)
         end
 
         def destroy
             @user.basket.destroy_all
-            render json: { message: 'Success' }
+            success_response
         end
     end
 end

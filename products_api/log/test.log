@@ -9779,3 +9779,543 @@ Processing by V1::UsersController#create as HTML
   [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
 Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 758)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM "basket_products" WHERE 1=1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM "ordered_products" WHERE 1=1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM "orders" WHERE 1=1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM "products" WHERE 1=1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE 1=1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test1@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test1@test.dk"], ["password_digest", "$2a$04$uWp9TvHIWzWtwcp3uwMZwumAH9x5L1Ky9Pp0V34JL2/wROZ6E/KB2"], ["created_at", "2023-11-10 10:58:31.597476"], ["updated_at", "2023-11-10 10:58:31.597476"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 1"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.607806"], ["updated_at", "2023-11-10 10:58:31.607806"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-10 10:58:31.624017"], ["updated_at", "2023-11-10 10:58:31.624017"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.625319"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/v1/users/1/baskets" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::BasketsController#show as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 5402)
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? ORDER BY "products"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test2@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test2@test.dk"], ["password_digest", "$2a$04$nL6/IE57pMBXoqLRnMZFJ.xQTh7eeXUJNTin1KL6xMrqY5Y1./dHu"], ["created_at", "2023-11-10 10:58:31.649829"], ["updated_at", "2023-11-10 10:58:31.649829"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 2"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.650536"], ["updated_at", "2023-11-10 10:58:31.650536"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-10 10:58:31.652066"], ["updated_at", "2023-11-10 10:58:31.652066"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.652865"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test3@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test3@test.dk"], ["password_digest", "$2a$04$4rA6aNR.mCSaDP6fYf1jh.1xTklSV8.hpTN1Y6aCJmkrPPG972NRW"], ["created_at", "2023-11-10 10:58:31.654655"], ["updated_at", "2023-11-10 10:58:31.654655"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/v1/users/1/baskets" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::BasketsController#show as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 312)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test4@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test4@test.dk"], ["password_digest", "$2a$04$d1hAc4OHEvCvV57ZaABkHuGANZEmqyDUTNm0arVhZjE.5GGYU9tPe"], ["created_at", "2023-11-10 10:58:31.658345"], ["updated_at", "2023-11-10 10:58:31.658345"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 3"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.658931"], ["updated_at", "2023-11-10 10:58:31.658931"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-10 10:58:31.660894"], ["updated_at", "2023-11-10 10:58:31.660894"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.661768"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/v1/users/1/baskets" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::BasketsController#show as HTML
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test5@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test5@test.dk"], ["password_digest", "$2a$04$t1.LraYjCZ3GPyomElcHDO/4ebPr5H/qVFX4ivI/36DOw/D4fl8ty"], ["created_at", "2023-11-10 10:58:31.665403"], ["updated_at", "2023-11-10 10:58:31.665403"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 4"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.666046"], ["updated_at", "2023-11-10 10:58:31.666046"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-10 10:58:31.667488"], ["updated_at", "2023-11-10 10:58:31.667488"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.668258"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? ORDER BY "products"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+Started PUT "/v1/users/1/baskets" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::BasketsController#update as HTML
+  Parameters: {"product_id"=>"1", "amount"=>"10", "user_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 10], ["updated_at", "2023-11-10 10:58:31.672359"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2001)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test6@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test6@test.dk"], ["password_digest", "$2a$04$rSzpoLfGWfMGYBzCFDxFKOw4m91v12b9eDqKoKLa8u3os2ljLkoiq"], ["created_at", "2023-11-10 10:58:31.676732"], ["updated_at", "2023-11-10 10:58:31.676732"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 5"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.677798"], ["updated_at", "2023-11-10 10:58:31.677798"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-10 10:58:31.679546"], ["updated_at", "2023-11-10 10:58:31.679546"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.680549"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? ORDER BY "products"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+Started PUT "/v1/users/1/baskets" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::BasketsController#update as HTML
+  Parameters: {"product_id"=>"1", "amount"=>"0", "user_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 0], ["updated_at", "2023-11-10 10:58:31.683158"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1574)
+  [1m[36mBasketProduct Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ? LIMIT ?[0m  [["user_id", 1], ["amount", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test7@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test7@test.dk"], ["password_digest", "$2a$04$qmC8WyL4ZTY6MlVIEeStC.AcDj02DUxHTiRa0Dttv6ajA8o4fbVqi"], ["created_at", "2023-11-10 10:58:31.686978"], ["updated_at", "2023-11-10 10:58:31.686978"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 6"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.687631"], ["updated_at", "2023-11-10 10:58:31.687631"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-10 10:58:31.689047"], ["updated_at", "2023-11-10 10:58:31.689047"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.2ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.689856"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/v1/users/1/baskets" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::BasketsController#update as HTML
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 85)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test8@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test8@test.dk"], ["password_digest", "$2a$04$EWf547jV03kxw0fTwY4Svursa/x91RYE/qJuL9bo4DhOXNG.PjIve"], ["created_at", "2023-11-10 10:58:31.693868"], ["updated_at", "2023-11-10 10:58:31.693868"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 7"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.694645"], ["updated_at", "2023-11-10 10:58:31.694645"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["amount", nil], ["created_at", "2023-11-10 10:58:31.696081"], ["updated_at", "2023-11-10 10:58:31.696081"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.696889"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/v1/users/1/baskets" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::BasketsController#destroy as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ?[0m  [["user_id", 1], ["product_id", 1]]
+  [1m[36mBasketProduct Destroy (0.0ms)[0m  [1m[31mDELETE FROM "basket_products" WHERE "basket_products"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2044)
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test9@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test9@test.dk"], ["password_digest", "$2a$04$bO31Ly2NZ5X3I5zrzG9T5.CpspnCiEYPszFRUZhohs8pN5hJLcFpG"], ["created_at", "2023-11-10 10:58:31.702724"], ["updated_at", "2023-11-10 10:58:31.702724"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:58:31.708123"], ["updated_at", "2023-11-10 10:58:31.708123"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 8"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.708989"], ["updated_at", "2023-11-10 10:58:31.708989"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["baught_price", 40], ["created_at", "2023-11-10 10:58:31.719775"], ["updated_at", "2023-11-10 10:58:31.719775"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 9"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.720555"], ["updated_at", "2023-11-10 10:58:31.720555"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-10 10:58:31.722290"], ["updated_at", "2023-11-10 10:58:31.722290"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.723453"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/v1/users/1/orders" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::OrdersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mOrderedProduct Load (0.1ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 1]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1534)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test10@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test10@test.dk"], ["password_digest", "$2a$04$.IJ9D6/3n55lSfCwzDh7mOUbvsPn7SAQT.BLaaUpcasdqJNlimwGq"], ["created_at", "2023-11-10 10:58:31.729630"], ["updated_at", "2023-11-10 10:58:31.729630"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:58:31.737823"], ["updated_at", "2023-11-10 10:58:31.737823"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 10"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.738597"], ["updated_at", "2023-11-10 10:58:31.738597"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["baught_price", 40], ["created_at", "2023-11-10 10:58:31.739957"], ["updated_at", "2023-11-10 10:58:31.739957"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 11"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.740605"], ["updated_at", "2023-11-10 10:58:31.740605"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-10 10:58:31.742567"], ["updated_at", "2023-11-10 10:58:31.742567"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.743466"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/v1/users/1/orders" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::OrdersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 88)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test11@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test11@test.dk"], ["password_digest", "$2a$04$m4XuZIs6mWPOgvyFdG4/sOmHFZZA./edTryc1Py8d5d3bJZsQMIZi"], ["created_at", "2023-11-10 10:58:31.747367"], ["updated_at", "2023-11-10 10:58:31.747367"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:58:31.748345"], ["updated_at", "2023-11-10 10:58:31.748345"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 12"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.749097"], ["updated_at", "2023-11-10 10:58:31.749097"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["baught_price", 40], ["created_at", "2023-11-10 10:58:31.750265"], ["updated_at", "2023-11-10 10:58:31.750265"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 13"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.750814"], ["updated_at", "2023-11-10 10:58:31.750814"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-10 10:58:31.752373"], ["updated_at", "2023-11-10 10:58:31.752373"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.753524"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? ORDER BY "products"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+Started POST "/v1/users/1/orders" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::OrdersController#create as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:58:31.757029"], ["updated_at", "2023-11-10 10:58:31.757029"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 2], ["product_id", 2], ["baught_price", 40], ["created_at", "2023-11-10 10:58:31.758522"], ["updated_at", "2023-11-10 10:58:31.758522"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ?[0m  [["user_id", 1], ["product_id", 2]]
+  [1m[36mBasketProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "basket_products" WHERE "basket_products"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 3531)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test12@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test12@test.dk"], ["password_digest", "$2a$04$2JfaHAoVZawU.F04AbVUZ.HDknq2Aq52xJyAICONyX4kzM2nJzzEG"], ["created_at", "2023-11-10 10:58:31.762391"], ["updated_at", "2023-11-10 10:58:31.762391"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:58:31.763522"], ["updated_at", "2023-11-10 10:58:31.763522"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 14"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.764103"], ["updated_at", "2023-11-10 10:58:31.764103"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["baught_price", 40], ["created_at", "2023-11-10 10:58:31.765256"], ["updated_at", "2023-11-10 10:58:31.765256"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 15"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.765950"], ["updated_at", "2023-11-10 10:58:31.765950"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-10 10:58:31.767337"], ["updated_at", "2023-11-10 10:58:31.767337"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.768121"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ?[0m  [["user_id", 1], ["product_id", 2]]
+  [1m[36mBasketProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "basket_products" WHERE "basket_products"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/v1/users/1/orders" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::OrdersController#create as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "products" INNER JOIN "basket_products" ON "products"."id" = "basket_products"."product_id" WHERE "basket_products"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 740)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test13@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test13@test.dk"], ["password_digest", "$2a$04$YZ6rbsmqkrcTEdgR3gX5Te4JcBbw7x6sXs/rR3f0INgqbGWyzeDg."], ["created_at", "2023-11-10 10:58:31.773975"], ["updated_at", "2023-11-10 10:58:31.773975"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:58:31.774938"], ["updated_at", "2023-11-10 10:58:31.774938"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 16"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.775510"], ["updated_at", "2023-11-10 10:58:31.775510"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["baught_price", 40], ["created_at", "2023-11-10 10:58:31.776765"], ["updated_at", "2023-11-10 10:58:31.776765"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 17"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.777328"], ["updated_at", "2023-11-10 10:58:31.777328"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-10 10:58:31.778634"], ["updated_at", "2023-11-10 10:58:31.778634"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.779557"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/v1/users/1/orders" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::OrdersController#create as HTML
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 85)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test14@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test14@test.dk"], ["password_digest", "$2a$04$SKSBIddY9Z0dIvkiN22fceMPj1b4lXdFDaqevbWiGOe5o0z002Jby"], ["created_at", "2023-11-10 10:58:31.782811"], ["updated_at", "2023-11-10 10:58:31.782811"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:58:31.783864"], ["updated_at", "2023-11-10 10:58:31.783864"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 18"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.784664"], ["updated_at", "2023-11-10 10:58:31.784664"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["baught_price", 40], ["created_at", "2023-11-10 10:58:31.786352"], ["updated_at", "2023-11-10 10:58:31.786352"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 19"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.787002"], ["updated_at", "2023-11-10 10:58:31.787002"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-10 10:58:31.788466"], ["updated_at", "2023-11-10 10:58:31.788466"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.789464"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+Started GET "/v1/users/1/orders/1" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::OrdersController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."id" = ?[0m  [["user_id", 1], ["id", 1]]
+  [1m[36mOrderedProduct Load (0.0ms)[0m  [1m[34mSELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1112)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test15@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test15@test.dk"], ["password_digest", "$2a$04$ZFINpekh8C9C.qJgrhBFVeCRzP8MMFkuSW3KLNyHvGsX9Xh/dGfYK"], ["created_at", "2023-11-10 10:58:31.795257"], ["updated_at", "2023-11-10 10:58:31.795257"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-11-10 10:58:31.796253"], ["updated_at", "2023-11-10 10:58:31.796253"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 20"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.796820"], ["updated_at", "2023-11-10 10:58:31.796820"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrderedProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "ordered_products" ("order_id", "product_id", "baught_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["baught_price", 40], ["created_at", "2023-11-10 10:58:31.797977"], ["updated_at", "2023-11-10 10:58:31.797977"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Test product 21"], ["description", "A very nice test product"], ["price", 40], ["created_at", "2023-11-10 10:58:31.798565"], ["updated_at", "2023-11-10 10:58:31.798565"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBasketProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "basket_products" ("user_id", "product_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["amount", nil], ["created_at", "2023-11-10 10:58:31.800222"], ["updated_at", "2023-11-10 10:58:31.800222"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" = ? LIMIT ?[0m  [["user_id", 1], ["product_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBasketProduct Update (0.1ms)[0m  [1m[33mUPDATE "basket_products" SET "amount" = ?, "updated_at" = ? WHERE "basket_products"."id" = ?[0m  [["amount", 1], ["updated_at", "2023-11-10 10:58:31.801112"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ? ORDER BY "orders"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+Started GET "/v1/users/1/orders/1" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::OrdersController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 85)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test16@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test16@test.dk"], ["password_digest", "$2a$04$/MJjOriauBPxG.lm3FyiR.SzLoTARRha7xBqyJVGiBQvY2b9ijdpG"], ["created_at", "2023-11-10 10:58:31.805145"], ["updated_at", "2023-11-10 10:58:31.805145"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/v1/products" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::ProductsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 495)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/v1/products" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::ProductsController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 88)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Torben Jensen"], ["email", "test@test.dk"], ["password_digest", "$2a$04$prGMkaMRZmloc0B7vXOK0eWsL58ZkdfMIBCnIJ.HXlQ6oGIvCIawu"], ["created_at", "2023-11-10 10:58:31.810758"], ["updated_at", "2023-11-10 10:58:31.810758"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/v1/sessions" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::SessionsController#create as HTML
+  Parameters: {"email"=>"test@test.dk", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.dk"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 587)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Torben Jensen"], ["email", "test@test.dk"], ["password_digest", "$2a$04$eQ.rqi8FxasPtySwQXNW2epnHDZLTpgqXVaRjUjuiO03ONOpQz.gm"], ["created_at", "2023-11-10 10:58:31.815955"], ["updated_at", "2023-11-10 10:58:31.815955"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/v1/sessions" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::SessionsController#create as HTML
+  Parameters: {"email"=>"wrong@email.dk", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@email.dk"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 216)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Torben Jensen"], ["email", "test@test.dk"], ["password_digest", "$2a$04$hzTlop9CMf3X2nZLaqTvpuzO8f59TolfuNN4L8oiGS0kQ0/tbZ.pK"], ["created_at", "2023-11-10 10:58:31.819454"], ["updated_at", "2023-11-10 10:58:31.819454"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/v1/sessions" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::SessionsController#create as HTML
+  Parameters: {"email"=>"test@test.dk", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.dk"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 277)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started POST "/v1/users" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::UsersController#create as HTML
+  Parameters: {"full_name"=>"Jørgen Jørgnsen", "email"=>"jørgen2@test.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "jørgen2@test.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "jørgen2@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Jørgen Jørgnsen"], ["email", "jørgen2@test.com"], ["password_digest", "$2a$04$u0QX7NfwsQx/paqalIuYKe3ffbofUe5SrFBohnsmWWEr7tPbI9xb."], ["created_at", "2023-11-10 10:58:31.825014"], ["updated_at", "2023-11-10 10:58:31.825014"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1276)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test17@test.dk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Test Testesen"], ["email", "test17@test.dk"], ["password_digest", "$2a$04$vK.CZaLQGdFhPFGsGQGYqe8eZqzBOxZ1a0bE399vyXHz8vu8l8lQC"], ["created_at", "2023-11-10 10:58:31.827772"], ["updated_at", "2023-11-10 10:58:31.827772"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/v1/users" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::UsersController#create as HTML
+  Parameters: {"full_name"=>"Jørgen Jørgnsen", "email"=>"test17@test.dk", "password"=>"[FILTERED]"}
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test17@test.dk"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 1551)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started POST "/v1/users" for 127.0.0.1 at 2023-11-10 11:58:31 +0100
+Processing by V1::UsersController#create as HTML
+  Parameters: {"full_name"=>"Jørgen Jørgnsen", "email"=>"test@test.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 758)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m

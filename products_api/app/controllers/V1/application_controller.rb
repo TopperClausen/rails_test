@@ -3,20 +3,24 @@ module V1
         def authorize
             jwt = request.headers[:Authorization];
             if jwt.blank?
-                render json: { message: 'Unauthorized' }, status: :unauthorized
+                unauthorized_response
                 return false
             end
 
             @user = User.from_jwt(jwt);
             if @user.blank?
-                render json: { message: 'Unauthorized' }, status: :unauthorized
+                unauthorized_response
                 return false
             end
 
             if params[:user_id].present? && @user.id != params[:user_id].to_i
-                render json: { message: 'Unauthorized' }, status: :unauthorized
+                unauthorized_response
                 return false
             end
+        end
+
+        def unauthorized_response
+            render json: { message: 'Unauthorized' }, status: :unauthorized
         end
 
         def success_response(message: 'Success', data:, status: 200)
@@ -31,8 +35,8 @@ module V1
             render json: { message: 'Internal server error' }, status: 500
         end
 
-        def bad_request_response(message: 'Bad request')
-            render json: { message: message }, status: :bad_request
+        def bad_request_response(message: 'Bad request', errors: nil)
+            render json: { message: message, errors: errors }, status: :bad_request
         end
     end
 end

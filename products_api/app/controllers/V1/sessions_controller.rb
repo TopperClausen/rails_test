@@ -3,14 +3,14 @@ module V1
         def create
             user = User.find_by(email: session_params[:email])
             unless user
-                render json: { message: 'Unauthorized' }, status: :unauthorized
+                unauthorized_response
                 return
             end
 
             if user.authenticate(session_params[:password])
-                render json: { message: "Success", jwt: user.jwt }
+                success_response(data: { jwt: user.jwt })
             else
-                render json: { message: 'Unauthorized' }, status: :unauthorized 
+                unauthorized_response
             end
         end
 

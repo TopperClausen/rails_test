@@ -1,16 +1,12 @@
 module V1
     class UsersController < ApplicationController
-        def index
-            render json: User.all
-        end
-
         def create
             user = User.new(user_params)
             if user.valid?
                 user.save!
-                render json: { message: 'success', jwt: user.jwt }
+                success_response(data: { jwt: user.jwt })
             else
-                render json: { message: 'failed', errors: user.errors }
+                bad_request_response(errors: user.errors)
             end
         end
 

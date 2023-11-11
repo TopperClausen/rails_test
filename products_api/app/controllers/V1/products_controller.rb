@@ -3,7 +3,7 @@ module V1
         before_action :authorize
         
         def index
-            render json: Product.all
+            success_response(data: Product.all)
         end
     end
 end
