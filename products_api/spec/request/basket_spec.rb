@@ -29,7 +29,7 @@ RSpec.describe "Basket", type: :request do
         amount = 10
         put "/v1/users/#{@user.id}/baskets", params: { product_id: product.id, amount: amount }, headers: { Authorization: @user.jwt }
         body = JSON.parse(response.body)
-        expect(body["basket"].first["amount"]).to be(amount)
+        expect(body["data"].first["amount"]).to be(amount)
     end
 
     it "Removes an item from the basket" do
@@ -37,7 +37,7 @@ RSpec.describe "Basket", type: :request do
         amount = 0
         put "/v1/users/#{@user.id}/baskets", params: { product_id: product.id, amount: amount }, headers: { Authorization: @user.jwt }
         body = JSON.parse(response.body)
-        expect(body["basket"].empty?).to be(true)
+        expect(body["data"].empty?).to be(true)
         expect(@user.basket_product.where.not(amount: 0).empty?).to be(true)
     end
 

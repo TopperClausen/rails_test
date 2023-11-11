@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Users", type: :request do
     it "creates a user, successfully" do
         post "/v1/users", params: { full_name: 'Jørgen Jørgnsen', email: "jørgen2@test.com", password: "SecretMagicWord123" }
-        expect(response.body).to include('success')
+        expect(response.body).to include('Success')
     end
 
     it "creates a user with an email in use" do
