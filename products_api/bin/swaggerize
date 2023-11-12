@@ -1,0 +1,2 @@
+rake rswag:specs:swaggerize
+RAILS_ENV=test rails rswag

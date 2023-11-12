@@ -2313,3 +2313,651 @@ DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rail
 Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 38038)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-11 12:21:16 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/topper/.rvm/rubies/ruby-3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/topper/.rvm/rubies/ruby-3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | Allocations: 374)
+Completed 200 OK in 16ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 4850)
+
+
+Started GET "/api-doc" for ::1 at 2023-11-11 12:29:31 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api-doc"):
+  
+Started GET "/favicon.ico" for ::1 at 2023-11-11 12:29:31 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2023-11-11 12:29:37 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/topper/.rvm/rubies/ruby-3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/topper/.rvm/rubies/ruby-3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 269)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 1866)
+
+
+Started GET "/api-docs" for ::1 at 2023-11-11 12:29:51 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 12:29:51 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 12:29:51 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 12:29:51 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 12:29:51 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 12:29:51 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 12:30:21 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 12:30:21 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 12:30:21 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 12:30:21 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 12:30:21 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 12:30:21 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 12:32:24 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 12:32:24 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 12:32:24 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 12:32:24 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 12:32:24 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 12:32:24 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 12:35:04 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 12:35:04 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 12:35:04 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 12:35:04 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 12:35:04 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 12:35:04 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 12:35:05 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 12:35:05 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 12:35:05 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 12:35:05 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 12:35:05 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 12:35:05 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 12:35:09 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 12:35:09 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 12:35:09 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 12:35:09 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 12:35:09 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 12:35:09 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 12:35:34 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 12:35:34 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 12:35:34 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 12:35:34 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 12:35:34 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 12:35:34 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 12:37:06 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 12:37:06 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 12:37:06 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 12:37:06 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 12:37:06 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 12:37:06 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 13:13:10 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 13:13:10 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 13:13:10 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 13:13:10 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 13:13:11 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 13:13:11 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 13:15:57 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 13:15:57 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 13:15:57 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 13:15:57 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 13:15:57 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 13:15:57 +0100
+Started GET "/api-docs/index.html" for 127.0.0.1 at 2023-11-11 13:20:49 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for 127.0.0.1 at 2023-11-11 13:20:49 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for 127.0.0.1 at 2023-11-11 13:20:49 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for 127.0.0.1 at 2023-11-11 13:20:49 +0100
+Started GET "/api-docs/v1/swagger.yaml" for 127.0.0.1 at 2023-11-11 13:20:49 +0100
+Started GET "/api-docs/favicon-32x32.png" for 127.0.0.1 at 2023-11-11 13:20:49 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 13:25:10 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 13:25:11 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 13:25:11 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 13:25:11 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 13:25:11 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 13:25:11 +0100
+Started POST "/v1/sessions" for 127.0.0.1 at 2023-11-11 13:27:26 +0100
+Processing by V1::SessionsController#create as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/V1/sessions_controller.rb:4:in `create'
+Completed 401 Unauthorized in 44ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 12386)
+
+
+Started POST "/v1/sessions" for 127.0.0.1 at 2023-11-11 13:27:30 +0100
+Processing by V1::SessionsController#create as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/V1/sessions_controller.rb:4:in `create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 579)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 13:32:19 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 13:32:19 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 13:32:19 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 13:32:19 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 13:32:19 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 13:32:19 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 13:35:15 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 13:35:15 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 13:35:15 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 13:35:15 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 13:35:15 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 13:35:15 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 13:35:17 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 13:35:17 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 13:35:17 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 13:35:17 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 13:35:17 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 13:35:17 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 13:35:18 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 13:35:18 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 13:35:18 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 13:35:18 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 13:35:18 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 13:35:18 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-11 13:36:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-11 13:36:12 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-11 13:36:12 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-11 13:36:12 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-11 13:36:12 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-11 13:36:12 +0100
+Started POST "/v1/sessions" for ::1 at 2023-11-11 13:36:46 +0100
+Processing by V1::SessionsController#create as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/V1/sessions_controller.rb:4:in `create'
+Completed 401 Unauthorized in 21ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 12384)
+
+
+Started POST "/v1/sessions" for ::1 at 2023-11-11 13:36:50 +0100
+Processing by V1::SessionsController#create as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/V1/sessions_controller.rb:4:in `create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 578)
+
+
+Started POST "/v1/sessions" for ::1 at 2023-11-11 13:37:14 +0100
+Processing by V1::SessionsController#create as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/V1/sessions_controller.rb:4:in `create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 577)
+
+
+Started GET "/api-docs" for ::1 at 2023-11-12 11:32:47 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 11:32:47 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 11:32:47 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 11:32:47 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 11:32:47 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 11:32:48 +0100
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:33:28 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 276)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 11:35:50 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 11:35:50 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 11:35:50 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 11:35:50 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 11:35:50 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-12 11:35:50 +0100
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:36:05 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+Completed 200 OK in 69ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 26917)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:36:10 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 87)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:36:11 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 87)
+
+
+Started GET "/api-docs" for ::1 at 2023-11-12 11:41:25 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 11:41:26 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 11:41:26 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 11:41:26 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 11:41:26 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 11:41:26 +0100
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:41:38 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 276)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:41:39 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:41:47 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:41:48 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:56:15 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:56:17 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:56:29 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 11:57:09 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 11:57:09 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 11:57:09 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 11:57:09 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 11:57:09 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-12 11:57:09 +0100
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:57:17 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:57:18 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 11:59:08 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 11:59:09 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 11:59:09 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 11:59:09 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 11:59:09 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-12 11:59:09 +0100
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:59:17 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 7235)
+
+
+  
+JWT::DecodeError (Not enough or too many segments):
+  
+app/services/jwt_service.rb:10:in `decode'
+app/models/user.rb:21:in `from_jwt'
+app/controllers/V1/application_controller.rb:10:in `authorize'
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:59:34 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 19002)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 11:59:43 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 94)
+
+
+  
+JWT::DecodeError (Not enough or too many segments):
+  
+app/services/jwt_service.rb:10:in `decode'
+app/models/user.rb:21:in `from_jwt'
+app/controllers/V1/application_controller.rb:10:in `authorize'
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:01:22 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2187)
+
+
+  
+JWT::DecodeError (Not enough or too many segments):
+  
+app/services/jwt_service.rb:10:in `decode'
+app/models/user.rb:23:in `from_jwt'
+app/controllers/V1/application_controller.rb:10:in `authorize'
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:01:23 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 92)
+
+
+  
+JWT::DecodeError (Not enough or too many segments):
+  
+app/services/jwt_service.rb:10:in `decode'
+app/models/user.rb:23:in `from_jwt'
+app/controllers/V1/application_controller.rb:10:in `authorize'
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:01:34 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 7238)
+
+
+  
+JWT::DecodeError (Not enough or too many segments):
+  
+app/services/jwt_service.rb:10:in `decode'
+app/models/user.rb:23:in `from_jwt'
+app/controllers/V1/application_controller.rb:10:in `authorize'
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:02:00 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2184)
+
+
+  
+JWT::DecodeError (Not enough or too many segments):
+  
+app/services/jwt_service.rb:10:in `decode'
+app/models/user.rb:24:in `from_jwt'
+app/controllers/V1/application_controller.rb:10:in `authorize'
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:02:12 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 92)
+
+
+  
+JWT::DecodeError (Not enough or too many segments):
+  
+app/services/jwt_service.rb:10:in `decode'
+app/models/user.rb:24:in `from_jwt'
+app/controllers/V1/application_controller.rb:10:in `authorize'
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:02:24 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2180)
+
+
+  
+JWT::DecodeError (Not enough or too many segments):
+  
+app/services/jwt_service.rb:10:in `decode'
+app/models/user.rb:24:in `from_jwt'
+app/controllers/V1/application_controller.rb:10:in `authorize'
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:02:25 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 92)
+
+
+  
+JWT::DecodeError (Not enough or too many segments):
+  
+app/services/jwt_service.rb:10:in `decode'
+app/models/user.rb:24:in `from_jwt'
+app/controllers/V1/application_controller.rb:10:in `authorize'
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:03:08 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2319)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:03:13 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 94)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:03:36 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+Completed 200 OK in 38ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 19151)
+
+
+Started GET "/v1/products" for ::1 at 2023-11-12 12:03:50 +0100
+Processing by V1::ProductsController#index as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/V1/application_controller.rb:27:in `success_response'
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 0.3ms | Allocations: 8161)
+
+
+Started GET "/v1/products" for ::1 at 2023-11-12 12:03:51 +0100
+Processing by V1::ProductsController#index as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/V1/application_controller.rb:27:in `success_response'
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1208)
+
+
+Started PATCH "/v1/users/1/baskets" for ::1 at 2023-11-12 12:04:22 +0100
+Processing by V1::BasketsController#update as JSON
+  Parameters: {"_json"=>2, "user_id"=>"1", "basket"=>{"_json"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" IS NULL LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/V1/baskets_controller.rb:12:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/V1/baskets_controller.rb:20:in `update'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:22:in `map'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 9095)
+
+
+Started PATCH "/v1/users/1/baskets" for ::1 at 2023-11-12 12:04:23 +0100
+Processing by V1::BasketsController#update as JSON
+  Parameters: {"_json"=>2, "user_id"=>"1", "basket"=>{"_json"=>2}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" IS NULL LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/V1/baskets_controller.rb:12:in `update'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/V1/baskets_controller.rb:20:in `update'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:22:in `map'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 2412)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:04:53 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1120)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:04:56 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1118)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-12 12:05:00 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1122)
+
+
+Started PATCH "/v1/users/1/baskets" for ::1 at 2023-11-12 12:05:17 +0100
+Processing by V1::BasketsController#update as JSON
+  Parameters: {"_json"=>2, "user_id"=>"1", "basket"=>{"_json"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."product_id" IS NULL LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/V1/baskets_controller.rb:12:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/V1/baskets_controller.rb:20:in `update'
+  [1m[36mBasketProduct Load (0.0ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:22:in `map'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2398)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 12:06:00 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 12:06:00 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 12:06:00 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 12:06:00 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 12:06:00 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-12 12:06:00 +0100
+Started POST "/v1/sessions" for ::1 at 2023-11-12 12:06:26 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+ChangeMe1337
+Processing by V1::SessionsController#create as JSON
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 153)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/V1/sessions_controller.rb:20:in `session_params'
+app/controllers/V1/sessions_controller.rb:4:in `create'
+Started POST "/v1/sessions" for ::1 at 2023-11-12 12:06:53 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+ChangeMe1337
+Processing by V1::SessionsController#create as JSON
+Completed 400 Bad Request in 128825ms (ActiveRecord: 0.0ms | Allocations: 59408)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/V1/sessions_controller.rb:21:in `session_params'
+app/controllers/V1/sessions_controller.rb:5:in `create'
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 12:10:27 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 12:10:27 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 12:10:27 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 12:10:27 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 12:10:27 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-12 12:10:27 +0100
+Started POST "/v1/sessions" for ::1 at 2023-11-12 12:10:49 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+ChangeMe1337
+Processing by V1::SessionsController#create as JSON
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms | Allocations: 1984)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/V1/sessions_controller.rb:20:in `session_params'
+app/controllers/V1/sessions_controller.rb:4:in `create'
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 12:16:04 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 12:16:04 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 12:16:04 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 12:16:04 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 12:16:04 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-12 12:16:04 +0100
+Started POST "/v1/sessions" for ::1 at 2023-11-12 12:16:23 +0100
+Processing by V1::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: V1::SessionsController, action: create, request: #<ActionDispatch::Request:0x00007fd5697f2ee8>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "controller"=>"v1/sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@test.dk"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/sessions_controller.rb:4:in `create'
+[31mUnpermitted parameter: :session. Context: { controller: V1::SessionsController, action: create, request: #<ActionDispatch::Request:0x00007fd5697f2ee8>, params: {"email"=>"admin@test.dk", "password"=>"[FILTERED]", "controller"=>"v1/sessions", "action"=>"create", "session"=>{"email"=>"admin@test.dk", "password"=>"[FILTERED]"}} }[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Completed 200 OK in 177ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 6676)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 12:17:58 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 12:17:58 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 12:17:58 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 12:17:58 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 12:17:59 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-12 12:17:59 +0100
+Started GET "/api-docs/index.html" for ::1 at 2023-11-12 12:18:29 +0100
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-12 12:18:29 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-12 12:18:29 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-12 12:18:29 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-12 12:18:29 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-12 12:18:29 +0100
+Started POST "/v1/users" for ::1 at 2023-11-12 12:18:58 +0100
+Processing by V1::UsersController#create as JSON
+  Parameters: {"full_name"=>"Swagger User", "email"=>"swagger@test.com", "password"=>"[FILTERED]", "user"=>{"full_name"=>"Swagger User", "email"=>"swagger@test.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: V1::UsersController, action: create, request: #<ActionDispatch::Request:0x00007fd569780be0>, params: {"full_name"=>"Swagger User", "email"=>"swagger@test.com", "password"=>"[FILTERED]", "controller"=>"v1/users", "action"=>"create", "user"=>{"full_name"=>"Swagger User", "email"=>"swagger@test.com"}} }[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "swagger@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/users_controller.rb:5:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "swagger@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/V1/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["full_name", "Swagger User"], ["email", "swagger@test.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-12 11:18:58.752812"], ["updated_at", "2023-11-12 11:18:58.752812"]]
+  ↳ app/controllers/V1/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/V1/users_controller.rb:6:in `create'
+Completed 200 OK in 179ms (Views: 0.1ms | ActiveRecord: 6.0ms | Allocations: 4171)
+
+
+Started POST "/v1/users" for ::1 at 2023-11-12 12:19:01 +0100
+Processing by V1::UsersController#create as JSON
+  Parameters: {"full_name"=>"Swagger User", "email"=>"swagger@test.com", "password"=>"[FILTERED]", "user"=>{"full_name"=>"Swagger User", "email"=>"swagger@test.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: V1::UsersController, action: create, request: #<ActionDispatch::Request:0x00007fd56983d5d8>, params: {"full_name"=>"Swagger User", "email"=>"swagger@test.com", "password"=>"[FILTERED]", "controller"=>"v1/users", "action"=>"create", "user"=>{"full_name"=>"Swagger User", "email"=>"swagger@test.com"}} }[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "swagger@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/users_controller.rb:5:in `create'
+Completed 400 Bad Request in 171ms (Views: 4.7ms | ActiveRecord: 0.1ms | Allocations: 2015)
+
+

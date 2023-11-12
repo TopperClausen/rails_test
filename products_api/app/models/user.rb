@@ -20,5 +20,7 @@ class User < ApplicationRecord
     def self.from_jwt(jwt)
         payload = JwtService.decode(jwt)
         User.find(payload[:id])
+    rescue JWT::DecodeError
+        nil
     end
 end

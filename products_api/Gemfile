@@ -8,11 +8,12 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem 'bcrypt'
 gem 'jwt'
+gem 'rswag'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
-  gem "rspec-rails", '~> 6.0.0'
   gem "factory_girl_rails"
+  gem 'rspec-rails'
   gem "byebug"
 end
 
