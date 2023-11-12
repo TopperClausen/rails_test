@@ -23,7 +23,7 @@ module V1
             render json: { message: 'Unauthorized' }, status: :unauthorized
         end
 
-        def success_response(message: 'Success', data:, status: 200)
+        def success_response(message: 'Success', data: nil, status: 200)
             render json: { message: message, data: data }, status: status
         end
 

@@ -5,7 +5,7 @@
 ```Ruby
 User.find(params[:user_id])
 ```
-### This is done directly in the controllers, because service classes or repositories would be overkill, if no side effects is happening.
+### This is done directly in the controllers, because service classes or repositories would be overkill, if no or very little, side effects is happening.
 
 ## Documentation
 ### The API endpoints are documented with the use of swagger and can be accessed at 
