@@ -3,7 +3,7 @@ module V1
         before_action :authorize
 
         def show
-            basket_product = @user.basket_product.where.not(amount: 0).includes(:product)
+            basket_product = @user.basket_product.not_empty.includes(:product)
             products_with_amount = basket_product.map { |scoped_basket_products| { amount: scoped_basket_products.amount, product: scoped_basket_products.product } }
             success_response(data: products_with_amount)
         end
@@ -18,7 +18,7 @@ module V1
             end
 
             @user.reload
-            basket_product = @user.basket_product.where.not(amount: 0).includes(:product)
+            basket_product = @user.basket_product.not_empty.includes(:product)
             products_with_amount = basket_product.map { |scoped_basket_products| { amount: scoped_basket_products.amount, product: scoped_basket_products.product } }
             success_response(data: products_with_amount)
         end
