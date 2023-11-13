@@ -3598,3 +3598,103 @@ Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-13 12:48:43 +0100
 Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-13 12:48:43 +0100
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-13 12:48:43 +0100
 Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-13 12:48:43 +0100
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-13 12:50:17 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mApikey Load (0.1ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+Filter chain halted as :validate_apikey rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 7889)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-13 12:52:55 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-13 12:52:55 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-13 12:52:55 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-13 12:52:55 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-13 12:52:56 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-13 12:52:56 +0100
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-13 12:53:17 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mApikey Load (0.1ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+Filter chain halted as :validate_apikey rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 7870)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-13 12:53:49 +0100
+Processing by V1::BasketsController#show as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mApikey Load (0.2ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" = ? LIMIT ?[0m  [["key", "bf25650e-a0e2-4d7b-bc8d-396551218904"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+  [1m[36mCACHE Apikey Load (0.0ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" = ? LIMIT ?[0m  [["key", "bf25650e-a0e2-4d7b-bc8d-396551218904"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+Completed 200 OK in 93ms (Views: 0.6ms | ActiveRecord: 1.2ms | Allocations: 37239)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-13 12:54:28 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-13 12:54:28 +0100
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-13 12:54:28 +0100
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-13 12:54:28 +0100
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-13 12:54:28 +0100
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-13 12:54:28 +0100
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-13 12:54:44 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mApikey Load (0.1ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" = ? LIMIT ?[0m  [["key", "bf25650e-a0e2-4d7b-bc8d-396551218904"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+  [1m[36mCACHE Apikey Load (0.0ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" = ? LIMIT ?[0m  [["key", "bf25650e-a0e2-4d7b-bc8d-396551218904"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /home/topper/rails_test/products_api/app/services/jwt_service.rb:2)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+Completed 200 OK in 106ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 43480)
+
+
+Started GET "/v1/users/2/baskets" for ::1 at 2023-11-13 12:54:51 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"2"}
+  [1m[36mApikey Load (0.2ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" = ? LIMIT ?[0m  [["key", "bf25650e-a0e2-4d7b-bc8d-396551218904"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+  [1m[36mCACHE Apikey Load (0.0ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" = ? LIMIT ?[0m  [["key", "bf25650e-a0e2-4d7b-bc8d-396551218904"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1209)
+
+
+Started GET "/v1/users/1/baskets" for ::1 at 2023-11-13 12:54:55 +0100
+Processing by V1::BasketsController#show as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mApikey Load (0.1ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" = ? LIMIT ?[0m  [["key", "bf25650e-a0e2-4d7b-bc8d-396551218904"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+  [1m[36mCACHE Apikey Load (0.0ms)[0m  [1m[34mSELECT "apikeys".* FROM "apikeys" WHERE "apikeys"."key" = ? LIMIT ?[0m  [["key", "bf25650e-a0e2-4d7b-bc8d-396551218904"], ["LIMIT", 1]]
+  ↳ app/controllers/V1/application_controller.rb:7:in `validate_apikey'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_jwt'
+  [1m[36mBasketProduct Load (0.1ms)[0m  [1m[34mSELECT "basket_products".* FROM "basket_products" WHERE "basket_products"."user_id" = ? AND "basket_products"."amount" != ?[0m  [["user_id", 1], ["amount", 0]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/V1/baskets_controller.rb:7:in `map'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 2529)
+
+

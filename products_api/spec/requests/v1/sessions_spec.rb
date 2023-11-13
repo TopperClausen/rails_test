@@ -4,6 +4,8 @@ RSpec.describe 'v1/sessions', type: :request do
 
   path '/v1/sessions' do
 
+    parameter name: 'x-api-key', in: :header, type: :string, description: 'Api token', required: true
+
     parameter name: :body, in: :body, required: true, schema: {
         type: :object,
         properties: {

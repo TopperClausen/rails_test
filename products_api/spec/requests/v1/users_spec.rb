@@ -3,6 +3,9 @@ require 'swagger_helper'
 RSpec.describe 'v1/users', type: :request do
 
   path '/v1/users' do
+    
+    parameter name: 'x-api-key', in: :header, type: :string, description: 'Api token', required: true
+
     parameter name: :body, in: :body, required: true, schema: {
         type: :object,
         properties: {

@@ -6,6 +6,11 @@ info:
 paths:
   "/v1/users/{user_id}/baskets":
     parameters:
+    - name: x-api-key
+      in: header
+      type: string
+      description: Api token
+      required: true
     - name: Authorization
       in: header
       type: string
@@ -53,6 +58,11 @@ paths:
           description: Unauthorized
   "/v1/users/{user_id}/orders":
     parameters:
+    - name: x-api-key
+      in: header
+      type: string
+      description: Api token
+      required: true
     - name: Authorization
       in: header
       type: string
@@ -102,6 +112,11 @@ paths:
           description: Unauthorized
   "/v1/products":
     parameters:
+    - name: x-api-key
+      in: header
+      type: string
+      description: Api token
+      required: true
     - name: Authorization
       in: header
       type: string
@@ -116,6 +131,11 @@ paths:
           description: Unauthorized
   "/v1/sessions":
     parameters:
+    - name: x-api-key
+      in: header
+      type: string
+      description: Api token
+      required: true
     - name: body
       in: body
       required: true
@@ -138,6 +158,11 @@ paths:
           description: Unauthorized
   "/v1/users":
     parameters:
+    - name: x-api-key
+      in: header
+      type: string
+      description: Api token
+      required: true
     - name: body
       in: body
       required: true

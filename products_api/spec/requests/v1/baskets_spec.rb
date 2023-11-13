@@ -4,6 +4,7 @@ RSpec.describe 'v1/baskets', type: :request do
 
   path '/v1/users/{user_id}/baskets' do
 
+    parameter name: 'x-api-key', in: :header, type: :string, description: 'Api token', required: true
     parameter name: 'Authorization', in: :header, type: :string, description: 'Token received from login', required: true
     parameter name: 'user_id', in: :path, type: :string, description: 'Id of the user'
 
