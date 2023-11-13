@@ -1,3 +1,5 @@
+Apikey.create!();
+
 user = User.create!(email: 'admin@test.dk', password: 'ChangeMe1337', full_name: 'Super Admin')
 shoe = Product.create!(name: 'Shoe', description: 'A very nice shoe in hight quality', price: 60)
 jacket = Product.create!(name: 'Jacket', description: 'A very nice jacket in hight quality', price: 120)
@@ -15,4 +17,4 @@ user.save!
 
 product_to_order = Product.create!(name: 'Ordered product', description: 'A product the user has ordered', price: 69)
 order = Order.create!(user_id: user.id)
-product_to_order.to_ordered_product(order_id: order.id)
+product_to_order.to_ordered_product!(order_id: order.id)

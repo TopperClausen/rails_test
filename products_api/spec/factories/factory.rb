@@ -34,4 +34,8 @@ FactoryGirl.define do
     factory :ordered_product do
         baught_price 69
     end
+
+    factory :apikey do
+        key Digest::UUID.uuid_v4
+    end
 end

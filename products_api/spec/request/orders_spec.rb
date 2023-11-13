@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "Basket", type: :request do
     before(:each) do
+        @apikey = FactoryGirl.create(:apikey)
         @user = FactoryGirl.create(:user, :with_order, :with_basket)
     end
 
     it "Gets all the users orders successfully" do
-        get "/v1/users/#{@user.id}/orders", headers: { Authorization: @user.jwt }
+        get "/v1/users/#{@user.id}/orders", headers: { Authorization: @user.jwt, "x-api-key": @apikey.key }
         expect(response.status).to be(200)
         body = JSON.parse(response.body)
         expect(response.body["data"].present?).to be(true)
@@ -20,13 +21,13 @@ RSpec.describe "Basket", type: :request do
 
     it "Creates an order from the users basket" do
         first_product = @user.basket.first
-        post "/v1/users/#{@user.id}/orders", headers: { Authorization: @user.jwt }
+        post "/v1/users/#{@user.id}/orders", headers: { Authorization: @user.jwt, "x-api-key": @apikey.key }
         expect(response.status).to be(200)
     end
 
     it "Fails to create an order when the basket is empty" do
         @user.basket.destroy_all
-        post "/v1/users/#{@user.id}/orders", headers: { Authorization: @user.jwt }
+        post "/v1/users/#{@user.id}/orders", headers: { Authorization: @user.jwt, "x-api-key": @apikey.key }
         expect(response.status).to be(400)
         expect(response.body).to include('No products in basket')
     end
@@ -38,7 +39,7 @@ RSpec.describe "Basket", type: :request do
     end
 
     it "Gets a single order containing the orders products" do
-        get "/v1/users/#{@user.id}/orders/#{@user.orders.first.id}", headers: { Authorization: @user.jwt }
+        get "/v1/users/#{@user.id}/orders/#{@user.orders.first.id}", headers: { Authorization: @user.jwt, "x-api-key": @apikey.key }
         expect(response.status).to be(200)
         body = JSON.parse(response.body)
         expect(body["data"]["ordered_products"].empty?).to be(false)

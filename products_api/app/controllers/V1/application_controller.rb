@@ -1,6 +1,20 @@
 module V1
     class ApplicationController < ActionController::API
+        before_action :validate_apikey
+
+        def validate_apikey
+            key = request.headers["x-api-key"]
+            apikey = Apikey.find_by(key: key)
+            if apikey.blank?
+                unauthorized_response
+            end
+            apikey.present?
+        end
+
         def authorize
+            apikey_valid = validate_apikey
+            return false unless apikey_valid
+
             jwt = request.headers[:Authorization];
             if jwt.blank?
                 unauthorized_response
